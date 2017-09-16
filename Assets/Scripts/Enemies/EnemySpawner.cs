@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Variables")]
+    public float spawnDelay = 1;
+    public int enemyIndex;
+    public Vector3 spawnPos;
+
     [Header("Enemy Types")]
     public GameObject[] forestEnemies;
     public GameObject[] lakeEnemies;
@@ -22,6 +27,14 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetEnemies();
+        enemyIndex = Random.Range(0, currentEnemies.Length);
+        float spawnZ = Random.Range(-30, 30);
+        spawnPos = new Vector3(-35, 0, spawnZ);
+    }
+
+    void SetEnemies()
+    {
         if (scroll != null)
         {
             switch (scroll.level)
@@ -39,5 +52,12 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
         }
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        GameObject clone = Instantiate(currentEnemies[enemyIndex], spawnPos, transform.rotation);
+        yield return new WaitForSeconds(spawnDelay);
+        spawnDelay = 1;
     }
 }
