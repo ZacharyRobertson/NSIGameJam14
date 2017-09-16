@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LocationManager : MonoBehaviour {
+public class Frog : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

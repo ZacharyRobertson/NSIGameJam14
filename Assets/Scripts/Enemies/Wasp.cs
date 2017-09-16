@@ -23,4 +23,12 @@ public class Wasp : Enemy
     {
         rigid.AddForce(Vector3.right * moveSpeed);
     }
+
+    protected override void OnCollisionEnter(Collision hit)
+    {
+        if(hit.collider.tag == "Player")
+        {
+            Destroy(hit.gameObject);
+        }
+    }
 }

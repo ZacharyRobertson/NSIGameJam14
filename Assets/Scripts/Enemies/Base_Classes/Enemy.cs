@@ -43,4 +43,9 @@ public class Enemy : MonoBehaviour
 
     }
 
+    protected virtual void OnCollisionEnter(Collision hit)
+    {
+
+    }
+
 }
