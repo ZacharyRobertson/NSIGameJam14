@@ -7,11 +7,12 @@ public class Enemy : MonoBehaviour
     [Header("Stats")]
     public float moveSpeed = 5f;
     public float attackDelay = 1f;
+    public int scoreAmount = 10;
     public int health = 1;
 
     [Header("References")]
     public Player player;
-    private Rigidbody rigid;
+    public Rigidbody rigid;
 
     // Use this for initialization
     protected virtual void Awake()

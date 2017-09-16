@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public GameObject gateA, gateB, gateC;
     public Transform gateSpawn;
+    public List<GameObject> enemies;
 
 
     // Use this for initialization
@@ -29,6 +30,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ProgressLevel();
+        foreach (var enemy in enemies)
+        {
+            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            //If we destroy the enemy
+            if(enemy.activeInHierarchy == false)
+            {
+                score += enemyScript.scoreAmount;
+            }
+        }
     }
 
     void ProgressLevel()
