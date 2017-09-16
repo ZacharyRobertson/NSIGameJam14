@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Move()
     {
-        rigid.AddForce(Vector3.forward * moveSpeed);
+        rigid.AddForce(Vector3.right * moveSpeed);
     }
 
     protected virtual void Attack()
