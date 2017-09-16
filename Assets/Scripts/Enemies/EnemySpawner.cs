@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("References")]
     public BackgroundScroll scroll;
     public GameManager gManage;
+    public Player player;
 
     // Use this for initialization
     void Start()
@@ -57,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        GameObject clone = Instantiate(currentEnemies[enemyIndex], spawnPos, transform.rotation);
+        GameObject clone = Instantiate(currentEnemies[enemyIndex], spawnPos, transform.rotation, transform);
         gManage.enemies.Add(clone);
         yield return new WaitForSeconds(spawnDelay);
         spawnDelay = 1;

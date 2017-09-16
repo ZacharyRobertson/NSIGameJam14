@@ -13,12 +13,13 @@ public class Enemy : MonoBehaviour
     [Header("References")]
     public Player player;
     public Rigidbody rigid;
+    public EnemySpawner spawner;
 
     // Use this for initialization
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player").GetComponent<Player>();
+        
     }
 
     // Update is called once per frame

@@ -9,7 +9,8 @@ public class Wasp : Enemy
     protected override void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player").GetComponent<Player>();
+        spawner = GetComponentInParent<EnemySpawner>();
+        player = spawner.player; 
     }
 
     // Update is called once per frame
