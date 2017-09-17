@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     [Header("References")]
     public BackgroundScroll scroll;
-    public Player player;
+    public PlayerScript player;
     public GameObject gateA, gateB, gateC;
     public Transform gateSpawn;
     public List<GameObject> enemies;
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
             if(enemy.activeInHierarchy == false)
             {
                 score += enemyScript.scoreAmount;
+                enemies.Remove(enemy);
             }
         }
     }

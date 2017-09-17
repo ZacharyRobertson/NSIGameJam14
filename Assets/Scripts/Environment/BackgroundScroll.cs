@@ -41,8 +41,8 @@ public class BackgroundScroll : MonoBehaviour
                 rend.material = materials[2];
                 break;
         }
-
         float offset = Time.time * scrollSpeed;
-        rend.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
+        rend.material.mainTextureOffset = new Vector2(offset, 0);
     }
+
 }

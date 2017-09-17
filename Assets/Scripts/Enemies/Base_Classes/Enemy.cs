@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public int health = 1;
 
     [Header("References")]
-    public Player player;
+    public PlayerScript player;
     public Rigidbody rigid;
     public EnemySpawner spawner;
 
@@ -30,17 +30,11 @@ public class Enemy : MonoBehaviour
             return;
 
         Move();
-        Attack();
     }
 
     protected virtual void Move()
     {
         rigid.AddForce(Vector3.right * moveSpeed);
-    }
-
-    protected virtual void Attack()
-    {
-
     }
 
     protected virtual void OnCollisionEnter(Collision hit)

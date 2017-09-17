@@ -8,20 +8,27 @@ public class Wasp : Enemy
     // Use this for initialization
     protected override void Awake()
     {
+        //Set our references
         rigid = GetComponent<Rigidbody>();
         spawner = GetComponentInParent<EnemySpawner>();
-        player = spawner.player; 
+        //Get our Player reference from the Spawner
+        player = spawner.player;
+        //Set our object to be destroyed if too much time passes
+        Destroy(gameObject, 15f);
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         Move();
+       
     }
 
     protected override void Move()
     {
-        rigid.AddForce(Vector3.right * moveSpeed);
+        transform.position += transform.right * Time.deltaTime * moveSpeed;
+        transform.position = transform.position + transform.forward * Mathf.Sin(Time.time * moveSpeed) * 0.5f;
+
     }
 
     protected override void OnCollisionEnter(Collision hit)

@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("References")]
     public BackgroundScroll scroll;
     public GameManager gManage;
-    public Player player;
+    public PlayerScript player;
 
     // Use this for initialization
     void Start()

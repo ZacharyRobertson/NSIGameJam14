@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Frog : MonoBehaviour {
+public class AudiManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
